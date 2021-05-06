@@ -1,5 +1,7 @@
 package br.ihsg.springboot.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -7,6 +9,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import br.ihsg.springboot.dto.SaleDTO;
+import br.ihsg.springboot.dto.SaleSuccessDTO;
+import br.ihsg.springboot.dto.SaleSumDTO;
 import br.ihsg.springboot.entities.Sale;
 import br.ihsg.springboot.repositories.SaleRepository;
 import br.ihsg.springboot.repositories.SellerRepository;
@@ -33,4 +37,14 @@ public class SaleService {
 		return listaSale.map( x -> new SaleDTO(x) );
 	}
 	
+	@Transactional(readOnly = true)
+	public List<SaleSumDTO> amountGroupedBySeller(){
+		return saleRepository.amountGroupedBySeller();
+	}
+
+	@Transactional(readOnly = true)
+	public List<SaleSuccessDTO> successGroupBySeller(){
+		return saleRepository.successGroupBySeller();
+	}
+
 }
