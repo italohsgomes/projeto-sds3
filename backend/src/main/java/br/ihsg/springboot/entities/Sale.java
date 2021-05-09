@@ -15,13 +15,13 @@ import javax.persistence.Table;
 public class Sale {
 	
 	@Id
-//	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY) //TEST
+//	@GeneratedValue(strategy = GenerationType.SEQUENCE) //DEV
 	private Long id;
 	private Integer visited;
 	private Integer deals;
 	private Double amount;
-	private LocalDate date;
+	private LocalDate data;
 	
 	@ManyToOne
 	@JoinColumn(name = "seller_id")
@@ -31,12 +31,12 @@ public class Sale {
 	/** CONSTRUTORES **/
 	public Sale() {}
 
-	public Sale(Long id, Integer visited, Integer deals, Double amount, LocalDate date, Seller seller) {
+	public Sale(Long id, Integer visited, Integer deals, Double amount, LocalDate data, Seller seller) {
 		this.id = id;
 		this.visited = visited;
 		this.deals = deals;
 		this.amount = amount;
-		this.date = date;
+		this.data = data;
 		this.seller = seller;
 	}
 
@@ -70,11 +70,12 @@ public class Sale {
 		this.amount = amount;
 	}
 
-	public LocalDate getDate() {
-		return date;
+	
+	public LocalDate getData() {
+		return data;
 	}
-	public void setDate(LocalDate date) {
-		this.date = date;
+	public void setData(LocalDate data) {
+		this.data = data;
 	}
 
 	public Seller getSeller() {

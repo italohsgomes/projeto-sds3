@@ -7,13 +7,13 @@ import br.ihsg.springboot.entities.Sale;
 
 public class SaleDTO implements Serializable{
 	
-	private static final long serialVersionUID = 1170434744760254111L;
+	private static final long serialVersionUID = -8520652185437980295L;
 	
 	private Long id;
 	private Integer visited;
 	private Integer deals;
 	private Double amount;
-	private LocalDate date;
+	private LocalDate data;
 	
 	private SellerDTO sellerDTO;
 
@@ -26,12 +26,12 @@ public class SaleDTO implements Serializable{
 
 
 
-	public SaleDTO(Long id, Integer visited, Integer deals, Double amount, LocalDate date, SellerDTO sellerDTO) {
+	public SaleDTO(Long id, Integer visited, Integer deals, Double amount, LocalDate data, SellerDTO sellerDTO) {
 		this.id = id;
 		this.visited = visited;
 		this.deals = deals;
 		this.amount = amount;
-		this.date = date;
+		this.data = data;
 		this.sellerDTO = sellerDTO;
 	}
 	
@@ -40,7 +40,7 @@ public class SaleDTO implements Serializable{
 		visited = saleEnt.getVisited();
 		deals = saleEnt.getDeals();
 		amount = saleEnt.getAmount();
-		date = saleEnt.getDate();
+		data = saleEnt.getData();
 
 		sellerDTO = new SellerDTO(saleEnt.getSeller());
 	}
@@ -74,13 +74,14 @@ public class SaleDTO implements Serializable{
 		this.amount = amount;
 	}
 	
-	public LocalDate getDate() {
-		return date;
+	public LocalDate getData() {
+		return data;
 	}
-	public void setDate(LocalDate date) {
-		this.date = date;
+	public void setData(LocalDate data) {
+		this.data = data;
 	}
-	
+
+
 	public SellerDTO getSellerDTO() {
 		return sellerDTO;
 	}

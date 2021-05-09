@@ -15,8 +15,8 @@ import javax.persistence.Table;
 public class Seller {
 
 	@Id
-//	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY) //TEST
+//	@GeneratedValue(strategy = GenerationType.SEQUENCE) //DEV
 	private Long id;
 	private String name;
 
